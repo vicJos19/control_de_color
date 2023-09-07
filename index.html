@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Tonalidad de Color en RGB</title>
+    <!-- Agrega la referencia a Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #miDiv {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(0, 0, 0);
+            margin-top: 20px;
+        }
+        .container {
+            text-align: center;
+        }
+        .slider {
+            width: 200px;
+        }
+        /* Estilos para el pie de página */
+        .footer {
+            background-color: #1876d3;
+            padding: 10px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado con barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Mi Sitio Web</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Acerca de</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contacto</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h1>Cambiar Tonalidad de Color en RGB</h1>
+        <div id="miDiv"></div>
+        <div class="form-group">
+            <label for="rojo">Rojo:</label>
+            <input type="range" class="form-control-range slider" id="rojo" min="0" max="255" value="0">
+        </div>
+        <div class="form-group">
+            <label for="verde">Verde:</label>
+            <input type="range" class="form-control-range slider" id="verde" min="0" max="255" value="0">
+        </div>
+        <div class="form-group">
+            <label for="azul">Azul:</label>
+            <input type="range" class="form-control-range slider" id="azul" min="0" max="255" value="0">
+        </div>
+    </div>
+    
+    <!-- Pie de página con datos de copyright -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Mi Sitio Web. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    
+    <!-- Agrega la referencia a Bootstrap JS y jQuery (necesarios para los controles de Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script>
+        const rojoSlider = document.getElementById("rojo");
+        const verdeSlider = document.getElementById("verde");
+        const azulSlider = document.getElementById("azul");
+        const miDiv = document.getElementById("miDiv");
+
+        function actualizarColor() {
+            const rojo = rojoSlider.value;
+            const verde = verdeSlider.value;
+            const azul = azulSlider.value;
+            miDiv.style.backgroundColor = `rgb(${rojo}, ${verde}, ${azul})`;
+        }
+
+        rojoSlider.addEventListener("input", actualizarColor);
+        verdeSlider.addEventListener("input", actualizarColor);
+        azulSlider.addEventListener("input", actualizarColor);
+    </script>
+</body>
+</html>
